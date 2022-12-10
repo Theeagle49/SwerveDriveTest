@@ -1,6 +1,11 @@
 // FRC2106 Junkyard Dogs - Swerve Drive Base Code
 
 package frc.robot;
+<<<<<<< HEAD
+import com.revrobotics.REVPhysicsSim;
+
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -54,11 +59,21 @@ public class RobotContainer {
     swerveSubsystem.setDefaultCommand(new SwerveJoystick(swerveSubsystem,
     () -> rightJoystick.getRawAxis(0 /* Place axis value here! X-AXIS */),
     () -> rightJoystick.getRawAxis(1 /* Place axis value here! Y-AXIS */),
+<<<<<<< HEAD
+    //() -> leftJoystick.getRawAxis(0 /* Place axis value here! R-AXIS */),
+    () -> rightJoystick.getRawAxis(2),
+=======
     () -> leftJoystick.getRawAxis(0 /* Place axis value here! R-AXIS */),
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
     () -> !leftJoystick.getRawButton(Constants.IOConstants.kFieldOrientedButton /* Field oriented? */)));
 
     // Run button binding method
     configureButtonBindings();
+<<<<<<< HEAD
+
+    
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
   }
 
   //------------------------------------B-U-T-T-O-N-S------------------------------------//
@@ -107,5 +122,12 @@ public class RobotContainer {
 
     return autoCommand;
   }
+<<<<<<< HEAD
+
+  public SwerveSubsystem getSwerveSubsystem(){
+    return swerveSubsystem;
+  }
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 }
 

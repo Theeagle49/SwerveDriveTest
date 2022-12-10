@@ -1,9 +1,27 @@
 // FRC2106 Junkyard Dogs - Swerve Drive Base Code
 
 package frc.robot;
+<<<<<<< HEAD
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.REVPhysicsSim;
+
+import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.system.plant.DCMotor;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.subsystems.SwerveSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
+import edu.wpi.first.wpilibj.smartdashboard.MechanismLigament2d;
+import edu.wpi.first.wpilibj.smartdashboard.MechanismRoot2d;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+=======
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -15,6 +33,11 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
+<<<<<<< HEAD
+  private MechanismLigament2d mTurn;
+  private double angle;
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -25,6 +48,18 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+<<<<<<< HEAD
+    Mechanism2d mod = new Mechanism2d(6,6);
+    MechanismRoot2d root = mod.getRoot("climber", 3, 3);
+
+    mTurn = root.append(new MechanismLigament2d("Swerve Turn", 2, 1.75));
+    SmartDashboard.putData("Swerve", mod);
+    angle = 360;
+    
+
+    
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
   }
 
   /**
@@ -41,6 +76,11 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+<<<<<<< HEAD
+    
+
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
@@ -75,8 +115,13 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
 
+<<<<<<< HEAD
+    // Reset encoders
+    m_robotContainer.containerResetAllEncoders();
+=======
     // Reset all ABE encoders
     //m_robotContainer.containerResetAllEncoders();
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 
   }
 
@@ -96,9 +141,28 @@ public class Robot extends TimedRobot {
 
   /** This function is called once when the robot is first started up. */
   @Override
+<<<<<<< HEAD
+  public void simulationInit() {
+   /* CANSparkMax[] turningMotors=new CANSparkMax[4];
+    turningMotors = RobotContainer.getSwerveSubsystem().getTurningMotors();
+    REVPhysicsSim.getInstance().addSparkMax(turningMotors[0], DCMotor.getNEO(1));
+    REVPhysicsSim.getInstance().addSparkMax(turningMotors[1], DCMotor.getNEO(1));
+    REVPhysicsSim.getInstance().addSparkMax(turningMotors[2], DCMotor.getNEO(1));
+    REVPhysicsSim.getInstance().addSparkMax(turningMotors[3], DCMotor.getNEO(1));*/
+   // DriverStation.reportError("Sim Init ", true);
+  }
+
+  /** This function is called periodically whilst in simulation. */
+  @Override
+  public void simulationPeriodic() {
+   // DriverStation.reportError("sim periodic", true);
+   REVPhysicsSim.getInstance().run();
+  }
+=======
   public void simulationInit() {}
 
   /** This function is called periodically whilst in simulation. */
   @Override
   public void simulationPeriodic() {}
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 }

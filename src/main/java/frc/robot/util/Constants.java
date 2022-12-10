@@ -29,12 +29,22 @@ public final class Constants {
         // Distance between front and back wheels
         public static final double kWheelBase = Units.inchesToMeters(15.5);
 
+<<<<<<< HEAD
+        public static final SwerveDriveKinematics kDriveKinematics = new SwerveDriveKinematics(
+                new Translation2d(kWheelBase / 2, kTrackWidth / 2),//Front left
+                new Translation2d(kWheelBase / 2, -kTrackWidth / 2),//Front right
+                new Translation2d(-kWheelBase / 2, kTrackWidth / 2),//back left
+                new Translation2d(-kWheelBase / 2, -kTrackWidth / 2));//back right
+                
+
+=======
         // Need to update to correct values, I dont remember the value we set last meet
         public static final SwerveDriveKinematics kDriveKinematics = new SwerveDriveKinematics(
                 new Translation2d(kWheelBase / 2, kTrackWidth / 2),
                 new Translation2d(kWheelBase / 2, -kTrackWidth / 2),
                 new Translation2d(-kWheelBase / 2, kTrackWidth / 2),
                 new Translation2d(-kWheelBase / 2, -kTrackWidth / 2));
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 
                                                                // Driving Motor Ports
         public static final int kFrontLeftDriveMotorPort = 1;  // Front Left 
@@ -48,13 +58,19 @@ public final class Constants {
         public static final int kBackRightTurningMotorPort = 6; // Back Right
         public static final int kBackLeftTurningMotorPort = 8;  // Back Left
 
+<<<<<<< HEAD
+=======
         // Encoder on NEO turning
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
         public static final boolean kFrontLeftTurningEncoderReversed = true;
         public static final boolean kBackLeftTurningEncoderReversed = true;
         public static final boolean kFrontRightTurningEncoderReversed = true;
         public static final boolean kBackRightTurningEncoderReversed = true;
 
+<<<<<<< HEAD
+=======
         // Encoder for NEO drive
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
         public static final boolean kFrontLeftDriveEncoderReversed = true;
         public static final boolean kBackLeftDriveEncoderReversed = true;
         public static final boolean kFrontRightDriveEncoderReversed = false;
@@ -65,17 +81,27 @@ public final class Constants {
         public static final int kFrontRightDriveAbsoluteEncoderPort = 1;
         public static final int kBackRightDriveAbsoluteEncoderPort = 2;
 
+<<<<<<< HEAD
+=======
         // Absolute encoders reversed
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
         public static final boolean kFrontLeftDriveAbsoluteEncoderReversed = false;
         public static final boolean kBackLeftDriveAbsoluteEncoderReversed = false;
         public static final boolean kFrontRightDriveAbsoluteEncoderReversed = false;
         public static final boolean kBackRightDriveAbsoluteEncoderReversed = false;
 
                                         // Need to update values for our specific magnet fields
+<<<<<<< HEAD
+        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = 0.0; //.48
+        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = 0.0;//3.7
+        public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = 0;//0
+        public static final double kBackRightDriveAbsoluteEncoderOffsetRad =  0;//1.7
+=======
         public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = 0.48; 
         public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = 3.70;
         public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = 0;
         public static final double kBackRightDriveAbsoluteEncoderOffsetRad =  1.7;
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 
         public static final double kPhysicalMaxSpeedMetersPerSecond = 5;
         public static final double kPhysicalMaxAngularSpeedRadiansPerSecond = 2 * 2 * Math.PI;

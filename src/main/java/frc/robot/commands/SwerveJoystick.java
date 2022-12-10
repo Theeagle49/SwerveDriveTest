@@ -5,9 +5,19 @@ import frc.robot.subsystems.SwerveSubsystem;
 import frc.robot.util.Constants.DriveConstants;
 import frc.robot.util.Constants.IOConstants;
 import java.util.function.Supplier;
+<<<<<<< HEAD
+
+import com.revrobotics.REVPhysicsSim;
+
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+import edu.wpi.first.math.system.plant.DCMotor;
+=======
+import edu.wpi.first.math.filter.SlewRateLimiter;
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
+import edu.wpi.first.math.kinematics.SwerveModuleState;
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -38,6 +48,10 @@ public class SwerveJoystick extends CommandBase {
 
     // Tell command that it needs swerveSubsystem
     addRequirements(swerveSubsystem);
+<<<<<<< HEAD
+    
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 
   }
 

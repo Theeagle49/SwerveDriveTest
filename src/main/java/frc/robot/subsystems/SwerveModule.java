@@ -3,17 +3,42 @@
 package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
+<<<<<<< HEAD
+import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
+import edu.wpi.first.wpilibj.smartdashboard.MechanismObject2d;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.util.Color;
+import edu.wpi.first.wpilibj.util.Color8Bit;
+
+import java.sql.Driver;
+
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.REVLibError;
+import com.revrobotics.REVPhysicsSim;
+import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxPIDController;
+=======
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.REVLibError;
 import com.revrobotics.RelativeEncoder;
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+<<<<<<< HEAD
+import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.util.Constants.DriveConstants;
 import frc.robot.util.Constants.ModuleConstants;
+import edu.wpi.first.wpilibj.smartdashboard.MechanismLigament2d;
+import edu.wpi.first.wpilibj.smartdashboard.MechanismRoot2d;
+=======
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.util.Constants.DriveConstants;
+import frc.robot.util.Constants.ModuleConstants;
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 
 public class SwerveModule extends SubsystemBase {
  
@@ -31,8 +56,25 @@ public class SwerveModule extends SubsystemBase {
   private final boolean absoluteEncoderReversed;
   private final double absoluteEncoderOffsetRad;
 
+<<<<<<< HEAD
+  private SparkMaxPIDController mTurnController;
+
   private String moduleName;
 
+  private MechanismLigament2d mTurn;
+  private MechanismLigament2d mDirection;
+
+  private MechanismLigament2d mTurn2;
+  private MechanismLigament2d mDirection2;
+
+  public static final double kTurningP = 0.01;
+  public static final double kTurningI = 0.0;
+  public static final double kTurningD = 0.005;
+
+=======
+  private String moduleName;
+
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
   // Class constructor where we assign default values for variables
    public SwerveModule(int driveMotorId, int turningMotorId, boolean driveMotorReversed, boolean turningMotorReversed, int absoluteEncoderId, double absoluteEncoderOffset, boolean absoLuteEncoderReversed, String name) {
 
@@ -74,21 +116,68 @@ public class SwerveModule extends SubsystemBase {
     // Tell PID controller that it is a *wheel*
     turningPidController.enableContinuousInput(-Math.PI, Math.PI);
 
+<<<<<<< HEAD
+    mTurnController = turningMotor.getPIDController();
+
+    mTurnController.setP(kTurningP);
+    mTurnController.setI(kTurningI);
+    mTurnController.setD(kTurningD);
+    mTurnController.setIZone(0.0);
+    mTurnController.setFF(0.0);
+    mTurnController.setOutputRange(-1, 1);
+
     // Set duty cycle for ABE encoder - lasted checked not working correctly!
     //absoluteEncoder.setDutyCycleRange(1/4096, 4095/4096);
 
+   
+
+=======
+    // Set duty cycle for ABE encoder - lasted checked not working correctly!
+    //absoluteEncoder.setDutyCycleRange(1/4096, 4095/4096);
+
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 
     // Call resetEncoders
     resetEncoders();
 
+<<<<<<< HEAD
+    //Create the mechanism 2d canvas and getting the root
+    Mechanism2d mod = new Mechanism2d(6,6);
+    MechanismRoot2d root = mod.getRoot("climber", 3, 3);
+
+    //Add mTurn to the root, add direction to turn, put it on smartdashboard
+    mTurn = root.append(new MechanismLigament2d("Swerve Turn", 2, 1.75));
+    mDirection = mTurn.append(new MechanismLigament2d("Wheel direction", 1, 0, 6, new Color8Bit(Color.kPurple)));
+    SmartDashboard.putData(moduleName+" commanded Turn", mod);
+
+  
+    //Same thing but to be used for the actual module state
+    Mechanism2d mod2 = new Mechanism2d(6,6);
+    MechanismRoot2d root2 = mod2.getRoot("climber2", 3, 3);
+
+    mTurn2 = root2.append(new MechanismLigament2d("Swerve Turn", 2, 1.75));
+    mDirection2 = mTurn2.append(new MechanismLigament2d("Wheel direction", 1, 0, 6, new Color8Bit(Color.kPurple)));
+    SmartDashboard.putData(moduleName+"  real Turn", mod);
+
+  
+    
+
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
   }
 
   public void update(){
 
+<<<<<<< HEAD
+    SmartDashboard.putNumber(moduleName + "Absolute-Position", absoluteEncoder.getAbsolutePosition());
+    SmartDashboard.putNumber(moduleName + "Radians-Raw" , absoluteEncoder.getAbsolutePosition() * 2.0 * Math.PI);
+    SmartDashboard.putNumber(moduleName + "Radians", getAbsoluteEncoderRad());
+=======
     // BUG WITH THESE 3 LINES, BREAKS SWERVE MODULE CODE
     //SmartDashboard.putNumber(moduleName + "Absolute-Position", absoluteEncoder.getAbsolutePosition());
     //SmartDashboard.putNumber(moduleName + "Radians-Raw" , absoluteEncoder.getAbsolutePosition() * 2.0 * Math.PI);
     //SmartDashboard.putNumber(moduleName + "Radians", getAbsoluteEncoderRad());
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 
     //SmartDashboard.putNumber(moduleName + " Drive Position", getDrivePosition());
     //SmartDashboard.putNumber(moduleName + " Turning Position", getTurningPosition());
@@ -143,7 +232,11 @@ public class SwerveModule extends SubsystemBase {
     angle *= ( absoluteEncoderReversed ? -1.0 : 1.0);
     
     // Report setting to driver station
+<<<<<<< HEAD
+    //DriverStation.reportError(moduleName + " called getAbsoluteEncoderRad: " + angle + "  " + absoluteEncoderOffsetRad, true);
+=======
     DriverStation.reportError(moduleName + " called getAbsoluteEncoderRad: " + angle + "  " + absoluteEncoderOffsetRad, true);
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 
     // Return angle in radians for neo turning motor encoder
     return angle;
@@ -167,7 +260,11 @@ public class SwerveModule extends SubsystemBase {
     return new SwerveModuleState(getDriveVelocity(), new Rotation2d(getTurningPosition()));
   }
 
+<<<<<<< HEAD
+  public void setDesiredStateFromAbs(SwerveModuleState state){
+=======
   public void setDesiredState(SwerveModuleState state){
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
     
     // Check if new command has high driving power 
     if(Math.abs(state.speedMetersPerSecond) < 0.001){
@@ -176,20 +273,73 @@ public class SwerveModule extends SubsystemBase {
     }
 
     // Optimize swerve module state to do fastest rotation movement, aka never rotate more than 90*
-    state = SwerveModuleState.optimize(state, getState().angle);
+<<<<<<< HEAD
+    //state = SwerveModuleState.optimize(state, getState().angle);
 
     // Scale velocity down using robot max speed
     driveMotor.set(state.speedMetersPerSecond / DriveConstants.kPhysicalMaxSpeedMetersPerSecond);
 
     // Use PID to calculate angle setpoint
+    turningMotor.set(turningPidController.calculate(getAbsoluteEncoderRad(), state.angle.getRadians()));
+
+    mTurn.setAngle(state.angle);
+    mDirection.setAngle(state.speedMetersPerSecond>0? 0:180);
+
+    mTurn2.setAngle(absoluteEncoder.getAbsolutePosition());
+    mDirection2.setAngle(state.speedMetersPerSecond / DriveConstants.kPhysicalMaxSpeedMetersPerSecond >0 ? 0:180);
+
+
+  }
+
+  public void setDesiredStateFromInternal(SwerveModuleState state){
+
+    // Check if new command has high driving power 
+    if(Math.abs(state.speedMetersPerSecond) < 0.001){
+      stop();
+      return;
+    }
+
+    // Optimize swerve module state to do fastest rotation movement, aka never rotate more than 90*
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
+    state = SwerveModuleState.optimize(state, getState().angle);
+
+    // Scale velocity down using robot max speed
+    driveMotor.set(state.speedMetersPerSecond / DriveConstants.kPhysicalMaxSpeedMetersPerSecond);
+
+<<<<<<< HEAD
+
+    mTurnController.setReference((state.angle.getRadians())/2*Math.PI, CANSparkMax.ControlType.kPosition);
+ 
+
+    mTurn.setAngle(state.angle);
+    mDirection.setAngle(state.speedMetersPerSecond>0? 0:180);
+
+    mTurn2.setAngle(absoluteEncoder.getAbsolutePosition());
+    mDirection2.setAngle(state.speedMetersPerSecond / DriveConstants.kPhysicalMaxSpeedMetersPerSecond >0 ? 0:180);
+  }
+
+  
+=======
+    // Use PID to calculate angle setpoint
     turningMotor.set(turningPidController.calculate(getTurningPosition(), state.angle.getRadians()));
 
   }
 
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
   // Stop all motors on module 
   public void stop() {
     driveMotor.set(0);
     turningMotor.set(0);
   }
 
+<<<<<<< HEAD
+
+  public void simulationPeriodic(){
+  
+
+  }
+
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 }

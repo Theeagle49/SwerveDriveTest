@@ -2,11 +2,20 @@
 
 package frc.robot.subsystems;
 import com.kauailabs.navx.frc.AHRS;
+<<<<<<< HEAD
+import com.revrobotics.CANSparkMax;
+
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+<<<<<<< HEAD
+import edu.wpi.first.wpilibj.CAN;
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -118,10 +127,17 @@ public class SwerveSubsystem extends SubsystemBase {
 
     // Make sure robot rotation is all ways possible by changing other module roation speeds
     SwerveDriveKinematics.desaturateWheelSpeeds(desiredStates, DriveConstants.kPhysicalMaxSpeedMetersPerSecond);
+<<<<<<< HEAD
+    frontLeft.setDesiredStateFromAbs(desiredStates[0]);
+    frontRight.setDesiredStateFromAbs(desiredStates[1]);
+    backLeft.setDesiredStateFromAbs(desiredStates[2]);
+    backRight.setDesiredStateFromAbs(desiredStates[3]);
+=======
     frontLeft.setDesiredState(desiredStates[0]);
     frontRight.setDesiredState(desiredStates[1]);
     backLeft.setDesiredState(desiredStates[2]);
     backRight.setDesiredState(desiredStates[3]);
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
 }
 
   // Return robot position caculated buy odometer
@@ -141,6 +157,11 @@ public class SwerveSubsystem extends SubsystemBase {
       backLeft.resetEncoders();
       backRight.resetEncoders();
   }
+<<<<<<< HEAD
+
+ 
+=======
+>>>>>>> a782038bf7ae0b5bdd397510f2c2cb4b594c1e16
   
 
   // Periodic looooooop
